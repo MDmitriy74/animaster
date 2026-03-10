@@ -38,7 +38,7 @@ function animaster() {
             result.push(`scale(${ratio})`);
         }
 
-        return result.join(" ");
+        return result.join(' ');
     }
 
     return {
@@ -47,7 +47,7 @@ function animaster() {
 
         addMove(duration, translation) {
             this._steps.push({
-                name: "move",
+                name: 'move',
                 duration,
                 params: translation
             });
@@ -56,7 +56,7 @@ function animaster() {
 
         addScale(duration, ratio) {
             this._steps.push({
-                name: "scale",
+                name: 'scale',
                 duration,
                 params: ratio
             });
@@ -65,7 +65,7 @@ function animaster() {
 
         addFadeIn(duration) {
             this._steps.push({
-                name: "fadeIn",
+                name: 'fadeIn',
                 duration
             });
             return this;
@@ -73,7 +73,7 @@ function animaster() {
 
         addFadeOut(duration) {
             this._steps.push({
-                name: "fadeOut",
+                name: 'fadeOut',
                 duration
             });
             return this;
@@ -81,7 +81,7 @@ function animaster() {
 
         addDelay(duration) {
             this._steps.push({
-                name: "delay",
+                name: 'delay',
                 duration
             });
             return this;
@@ -89,7 +89,7 @@ function animaster() {
 
         addLetterSpacing(duration, value) {
             this._steps.push({
-                name: "letterSpacing",
+                name: 'letterSpacing',
                 duration,
                 params: value
             });
@@ -98,7 +98,7 @@ function animaster() {
 
         addOutlineColor(duration, value) {
             this._steps.push({
-                name: "outlineColor",
+                name: 'outlineColor',
                 duration,
                 params: value
             });
@@ -122,29 +122,29 @@ function animaster() {
 
                         switch (step.name) {
 
-                            case "move":
+                            case 'move':
                                 element.style.transform = getTransform(step.params, null);
                                 break;
 
-                            case "scale":
+                            case 'scale':
                                 element.style.transform = getTransform(null, step.params);
                                 break;
 
-                            case "fadeIn":
-                                element.classList.remove("hide");
-                                element.classList.add("show");
+                            case 'fadeIn':
+                                element.classList.remove('hide');
+                                element.classList.add('show');
                                 break;
 
-                            case "fadeOut":
-                                element.classList.remove("show");
-                                element.classList.add("hide");
+                            case 'fadeOut':
+                                element.classList.remove('show');
+                                element.classList.add('hide');
                                 break;
 
-                            case "letterSpacing":
+                            case 'letterSpacing':
                                 element.style.letterSpacing = step.params;
                                 break;
 
-                            case "outlineColor":
+                            case 'outlineColor':
                                 element.style.outlineColor = step.params;
                                 break;
                         }
@@ -229,12 +229,12 @@ function animaster() {
 
             const beat = () => {
 
-                element.style.transitionDuration = "500ms";
-                element.style.transform = "scale(1.4)";
+                element.style.transitionDuration = '500ms';
+                element.style.transform = 'scale(1.4)';
 
                 setTimeout(() => {
-                    element.style.transitionDuration = "500ms";
-                    element.style.transform = "scale(1)";
+                    element.style.transitionDuration = '500ms';
+                    element.style.transform = 'scale(1)';
                 }, 500);
             };
 
@@ -280,108 +280,108 @@ function addListeners() {
     let letterSpacingController = null;
     let outlineColorController = null;
 
-    document.getElementById("fadeInPlay").onclick = () => {
-        animaster().fadeIn(document.getElementById("fadeInBlock"), 5000);
+    document.getElementById('fadeInPlay').onclick = () => {
+        animaster().fadeIn(document.getElementById('fadeInBlock'), 5000);
     };
 
-    document.getElementById("fadeOutPlay").onclick = () => {
-        animaster().fadeOut(document.getElementById("fadeOutBlock"), 5000);
+    document.getElementById('fadeOutPlay').onclick = () => {
+        animaster().fadeOut(document.getElementById('fadeOutBlock'), 5000);
     };
 
-    document.getElementById("movePlay").onclick = () => {
+    document.getElementById('movePlay').onclick = () => {
         animaster().move(
-            document.getElementById("moveBlock"),
+            document.getElementById('moveBlock'),
             1000,
             { x: 100, y: 10 }
         );
     };
 
-    document.getElementById("scalePlay").onclick = () => {
+    document.getElementById('scalePlay').onclick = () => {
         animaster().scale(
-            document.getElementById("scaleBlock"),
+            document.getElementById('scaleBlock'),
             1000,
             1.25
         );
     };
 
-    document.getElementById("moveAndHidePlay").onclick = () => {
+    document.getElementById('moveAndHidePlay').onclick = () => {
         moveAndHideController =
             animaster().moveAndHide(
-                document.getElementById("moveAndHideBlock"),
+                document.getElementById('moveAndHideBlock'),
                 3000
             );
     };
 
-    document.getElementById("moveAndHideReset").onclick = () => {
+    document.getElementById('moveAndHideReset').onclick = () => {
 
         if (moveAndHideController)
             moveAndHideController.cancel();
 
         animaster().resetMoveAndHide(
-            document.getElementById("moveAndHideBlock")
+            document.getElementById('moveAndHideBlock')
         );
     };
 
-    document.getElementById("showAndHidePlay").onclick = () => {
+    document.getElementById('showAndHidePlay').onclick = () => {
         animaster().showAndHide(
-            document.getElementById("showAndHideBlock"),
+            document.getElementById('showAndHideBlock'),
             3000
         );
     };
 
-    document.getElementById("heartBeatingPlay").onclick = () => {
+    document.getElementById('heartBeatingPlay').onclick = () => {
 
         heartBeatController =
             master.heartBeating(
-                document.getElementById("heartBeatingBlock")
+                document.getElementById('heartBeatingBlock')
             );
     };
 
-    document.getElementById("heartBeatingStop").onclick = () => {
+    document.getElementById('heartBeatingStop').onclick = () => {
 
         if (heartBeatController)
             heartBeatController.stop();
     };
 
-    document.getElementById("letterSpacingPlay").onclick = () => {
+    document.getElementById('letterSpacingPlay').onclick = () => {
 
         letterSpacingController =
             master.letterSpacing(
-                document.getElementById("letterSpacingBlock"),
+                document.getElementById('letterSpacingBlock'),
                 1000,
-                "10px"
+                '10px'
             );
     };
 
-    document.getElementById("letterSpacingReset").onclick = () => {
+    document.getElementById('letterSpacingReset').onclick = () => {
 
         if (letterSpacingController)
             letterSpacingController.reset();
         else
             master.resetLetterSpacing(
-                document.getElementById("letterSpacingBlock")
+                document.getElementById('letterSpacingBlock')
             );
     };
 
-    document.getElementById("outlineColorPlay").onclick = () => {
+    document.getElementById('outlineColorPlay').onclick = () => {
 
         outlineColorController =
             master.outlineColor(
-                document.getElementById("outlineColorBlock"),
+                document.getElementById('outlineColorBlock'),
                 1500,
-                "red"
+                'red'
             );
     };
 
-    document.getElementById("outlineColorReset").onclick = () => {
+    document.getElementById('outlineColorReset').onclick = () => {
 
         if (outlineColorController)
             outlineColorController.reset();
         else
             master.resetOutlineColor(
-                document.getElementById("outlineColorBlock")
+                document.getElementById('outlineColorBlock')
             );
     };
 }
 
-document.addEventListener("DOMContentLoaded", addListeners);
+document.addEventListener('DOMContentLoaded', addListeners);
