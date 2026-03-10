@@ -224,7 +224,6 @@ function animaster() {
                 .play(element);
         },
 
-        // FIX: сердце работает как в старой версии
         heartBeating(element) {
 
             const beat = () => {
